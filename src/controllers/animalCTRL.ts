@@ -13,7 +13,7 @@ const getAll = async (req: Request, res: Response): Promise<void> => {
   res.status(200).json(data);
 };
 
-export const getById = async (req: Request, res: Response): Promise<void> => {
+const getById = async (req: Request, res: Response): Promise<void> => {
   const id = Number(req.params.id);
   if (!id) throw errorGenerator(400, 'Please insert correst id');
 

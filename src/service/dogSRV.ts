@@ -8,7 +8,7 @@ const getAll = async (options: ReqOptionsChecker) => {
   let { limit, offset, attribute, order } = options;
 
   return await Dog.findAll({
-    order: [[attribute ? attribute : 'id', order ? order : 'asc']],
+    order: [[attribute, order]],
     limit,
     offset
   });
