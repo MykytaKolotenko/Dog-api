@@ -15,7 +15,8 @@ This project use modern technolgy to show my junior power.
 1. Clone project
 2. Run `npm install`
 3. Check that you have a DB. If not create it, by using this code `CREATE DATABASE db_name;`
-4. After that you need to create `.env` file in the root. With this poles:
+4. Run `npm run initTable`
+5. After that you need to create `.env` file in the root. With this poles:
    - `PORT` - port where the server opens
    - `VERSION` - version of app
    - `BASE` - DB name
