@@ -28,7 +28,10 @@
     "start": "rm -rf dist/ && tsc --project . && node dist/app.js",
     "dev": "nodemon .",
     "format": "prettier --config .prettierrc src/**/*.ts --write",
-    "createTable": ""
+    "createInitfile": "tsc src/db/initTable.ts",
+    "readInitFile": " node src/db/initTable.js",
+    "deleteInitFile": "rm -rf src/db/initTable.js src/db/dogModel.js src/db/connection.js",
+    "initTable": "npm run createInitfile&& npm run readInitFile && npm run deleteInitFile"
   },
   "author": "",
   "license": "ISC",

@@ -1,31 +1,43 @@
+import { ValidationError } from 'sequelize';
 import Dog from '../db/dogModel';
 import errorGenerator from '../helpers/errorGenerator';
-import { IAnimalCreate } from '../interfaces/IAnimal';
+import ReqOptionsChecker from '../helpers/ReqOptionsChecker';
+import { IAnimalRequest } from '../interfaces/IAnimal';
 
-Dog.sync();
+const getAll = async (options: ReqOptionsChecker) => {
+  let { limit, offset, attribute, order } = options;
 
-const getAll = async () => await Dog.findAll();
+  return await Dog.findAll({
+    order: [[attribute ? attribute : 'id', order ? order : 'asc']],
+    limit,
+    offset
+  });
+};
 
 const getById = async (id: number) => await Dog.findByPk(id);
 
-const create = async (data: IAnimalCreate) => {
+const create = async (data: IAnimalRequest) => {
   try {
     const response = await Dog.create({ ...data });
-    Dog;
+
     return response;
   } catch (error) {
-    if (
-      error instanceof Error &&
-      error.name === 'SequelizeUniqueConstraintError'
-    ) {
-      throw errorGenerator(400, error.name);
+    if (error instanceof ValidationError) {
+      throw errorGenerator(404, error.errors[0].message);
     }
   }
 };
 
 const deleteByID = async (id: number) => await Dog.destroy({ where: { id } });
 
-const update = async (data: IAnimalCreate, id: number) =>
-  await Dog.update(data, { where: { id } });
+const update = async (data: IAnimalRequest, id: number) => {
+  try {
+    return await Dog.update(data, { where: { id } });
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      throw errorGenerator(404, error.errors[0].message);
+    }
+  }
+};
 
 export default { getAll, getById, create, update, deleteByID };

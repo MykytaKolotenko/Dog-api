@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from './connection';
 
 const Dog = sequelize.define(
-  'animals',
+  'dogs',
   {
     name: {
       type: DataTypes.STRING,

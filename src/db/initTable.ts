@@ -1,13 +1,15 @@
-import Animal from './animalModel';
+import Dog from './dogModel';
 
 (async () => {
-  await Animal.create({
+  await Dog.sync({ force: true });
+
+  await Dog.create({
     name: 'Neo',
     color: 'red & amber',
     weight: 32,
     tail_length: 22
   }),
-    await Animal.create({
+    await Dog.create({
       name: 'Jessy',
       color: 'black & white',
       weight: 14,
