@@ -46,7 +46,7 @@ This project use modern technolgy to show my junior power.
         "name": "string",
         "color": "string",
         "weight": "number",
-        "tail_length": "number",
+        "tail_length": "number"
 
 - ### `GET:/dog/:id`.
 
@@ -58,7 +58,7 @@ This project use modern technolgy to show my junior power.
         "name": "string",
         "color": "string",
         "weight": "number",
-        "tail_length": "number",
+        "tail_length": "number"
 
 - ### `POST:/dog/`.
 
@@ -75,7 +75,7 @@ This project use modern technolgy to show my junior power.
         "name": "string",
         "color": "string",
         "weight": "number",
-        "tail_length": "number",
+        "tail_length": "number"
 
 - ### `PATCH:/dog/:id`.
 
@@ -96,7 +96,7 @@ This project use modern technolgy to show my junior power.
         "name": "string",
         "color": "string",
         "weight": "number",
-        "tail_length": "number",
+        "tail_length": "number"
 
 - ### `DELETE:/dog/:id`.
 
@@ -108,7 +108,7 @@ This project use modern technolgy to show my junior power.
         "name": "string",
         "color": "string",
         "weight": "number",
-        "tail_length": "number",
+        "tail_length": "number"
 
 ## Technologies Used
 
